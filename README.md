@@ -23,7 +23,7 @@ generate({ words: 4 }).raw; // ['tiny', 'crabby', 'wired', 'quicksand']
 
 generate({ words: 4, number: true }).dashed; // 'breakable-judicious-luxuriant-tax-3931'
 
-generate({ words: 2, number: 6 }).dashed; // 'arch-measure-24518'
+generate({ words: 2, number: 6 }).dashed; // 'arch-measure-245183'
 generate({ words: 2, startingLetter: 'e', alliterative: true }).spaced; // 'elegant experience'
 
 generate({ words: 2, alliterative: 'c' }).dashed; // 'crabby-cactus'
