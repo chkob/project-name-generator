@@ -52,14 +52,15 @@ Usage: project-name-generator [options]
 
 Options:
 
-  -V, --version          output the version number
-  -w, --words [num]      number of words [2]
-  -n, --numbers [num]    use numbers, number of digits
-  -a, --alliterative     use alliterative
-  -o, --output [output]  output type [raw|dashed|spaced|dot|under_scored]
-  -v, --vocab [category] category of vocaburaries [default|fruits]
-  -l, --letter [letter]  specify first letter
-  -h, --help             output usage information
+  -V, --version           output the version number
+  -w, --words [num]       number of words [2] (default: 2)
+  -n, --numbers [num]     use numbers
+  -a, --alliterative      use alliterative
+  -o, --output [output]   output type [raw|dashed|spaced|dot|under_scored|camelcase]
+  -v, --vocab [category]  category of vocaburaries [default|fruits|breads]
+  -g, --geo [category]    category of geolocations [default|numbers]
+  -l, --letter [letter]   specify first letter
+  -h, --help              display help for command
 ```
 
 ## API
