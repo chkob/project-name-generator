@@ -132,6 +132,16 @@ describe('generator', function () {
         expect(_.includes(fruits, projName.raw[1])).to.be(true);
       });
 
+      it('with {words: 2, number: 5}, has 1 adjective and 1 noun and up to 5 numeric digits', function() {
+        projName = generate({words: 2, number: 5, alliterative: true});
+        expect(projName.raw.length).to.be(3);
+        expect(_.includes(adjectives, projName.raw[0])).to.be(true);
+        expect(_.includes(nouns, projName.raw[1])).to.be(true);
+        expect(typeof projName.raw[2]).to.be('number');
+        expect(projName.raw[2]).to.be.above(0);
+        expect(projName.raw[2]).to.be.below(100000);
+      });
+
       it('with {words: 2, number: false, alliterative: false, vocab: \'breads\'}, has 1 adjective and 1 noun that is from breads', function() {
         projName = generate({words: 2, number: false, alliterative: false, vocab: 'breads'});
         expect(projName.raw.length).to.be(2);
