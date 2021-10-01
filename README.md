@@ -102,9 +102,9 @@ The `options` argument object can have properties
 `generate({ words: 2, number: false, startingLetter: 'e', alliterative: true })` will return:
 ```javascript
 {
-  raw: [ 'exciting', 'fire' ],
-  dashed: 'exciting-fire',
-  spaced: 'exciting fire'
+  raw: [ 'economic', 'effect' ],
+  dashed: 'economic-effect',
+  spaced: 'economic effect'
 }
 ```
 `generate({ words: 2, number: 6 })` will return:
