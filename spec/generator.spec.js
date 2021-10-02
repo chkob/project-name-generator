@@ -1,4 +1,7 @@
 var _ = require('lodash'),
+  mocha = require('mocha'),
+  describe = mocha.describe,
+  it = mocha.it,
   nouns = require('../src/nouns'),
   adjectives = require('../src/adjectives'),
   generate = require('../src/generator'),
@@ -147,7 +150,7 @@ describe('generator', function () {
         expect(projName.raw.length).to.be(2);
         expect(_.includes(adjectives, projName.raw[0])).to.be(true);
         expect(_.includes(breads, projName.raw[1])).to.be(true);
-      });      
+      });
 
       it('with {words: 2, number: false, alliterative: false, geo: \'default\'},' + 
          ' has 1 adjective and 1 noun that is from thailand provinces', function() {
