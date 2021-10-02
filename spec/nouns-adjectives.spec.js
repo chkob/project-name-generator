@@ -1,4 +1,7 @@
 var _ = require('lodash'),
+  mocha = require('mocha'),
+  describe = mocha.describe,
+  it = mocha.it,
   nouns = require('../src/nouns'),
   adjectives = require('../src/adjectives'),
   helpers = require('./spec-helpers'),
