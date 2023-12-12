@@ -1,15 +1,23 @@
-# Project Name Generator
+# Server Name Gen
 
 Generate quirky names like *spiffy-waterfall*, *sassy-bread*, *mature-dew-8239* to use wherever you need a random but memorable name.
 
 Useful for object names, temp folders, passwords, project names, unique ids etc
 
-## Install
-`npm install project-name-generator --save`
+## Install as CLI
+*npm*
+
+`npm install server-name-gen --save`
+
+*bun*
+
+`bun add server-name-gen`
+
+
 
 ## Quick Start
-```javascript
-var generate = require('project-name-generator');
+```typescript
+import generate from 'server-name-gen';
 
 generate().dashed; // 'uptight-guitar'
 
@@ -23,15 +31,13 @@ generate({ words: 4 }).raw; // ['tiny', 'crabby', 'wired', 'quicksand']
 
 generate({ words: 4, number: true }).dashed; // 'breakable-judicious-luxuriant-tax-3931'
 
-generate({ words: 2, startingLetter: 'e', alliterative: true }).spaced; // 'elegant experience'
-
-generate({ words: 2, alliterative: 'c' }).dashed; // 'crabby-cactus'
+generate({ words: 2, alliterative: true }).spaced; // 'elegant experience'
 
 ```
 
 ## Quickstart CLI
-This package contains a cli script.  You can pull in the package globally using npm
-`npm install -g project-name-generator`
+This package contains a simple cli. You can pull in the package globally using npm
+`npm install -g server-name-gen`
 
 Call from your command line
 ```
@@ -43,9 +49,9 @@ $ project-name-generator
 
 For CLI options 
 ```
-project-name-generator -h
+server-name-gen -h
 
-Usage: project-name-generator [options]
+Usage: server-name-gen [options]
 
 
 Options:
@@ -54,9 +60,7 @@ Options:
   -w, --words [num]      number of words [2]
   -n, --numbers          use numbers
   -a, --alliterative     use alliterative
-  -o, --output [output]  output type [raw|dashed|spaced|dot|under_scored]
-  -v, --vocab [category] category of vocaburaries [default|fruits]
-  -l, --letter [letter]  specify first letter
+  -o, --output [output]  output type [raw|dashed|spaced]
   -h, --help             output usage information
 ```
 
@@ -64,7 +68,7 @@ Options:
 The module returns a single function, `generate(options)`
 
 Calling `generate()` with no arguments will return an object:
-```javascript
+```typescript
 {
     raw: ['whispering', 'valley'],
     dashed: 'whispering-valley',
@@ -76,11 +80,10 @@ The `options` argument object can have properties
 
 * **words** (number) - Number of words generated (excluding number). All words will be adjectives, except the last one which will be a noun. Defaults to **2**.
 * **number** (boolean) - Whether a numeric suffix is generated or not. The number is between 1 - 9999, both inclusive. Defaults to **false**.
-* **alliterative** (boolean/string) - Whether to output words beginning with the same letter or not. If a string is passed, returns only words starting with that character. Defaults to **false**.
-* **startingLetter** (string) - Specifies the letter to start the project name with. Defaults to **null**.
+* **alliterative** (boolean) - Whether to output words beginning with the same letter or not. Defaults to **false**.
 
 `generate({ words: 3 })` will return:
-```javascript
+```typescript
 {
     raw: ['harmonious', 'endurable', 'substance'],
     dashed: 'harmonious-endurable-substance',
@@ -89,7 +92,7 @@ The `options` argument object can have properties
 ```
 
 `generate({ words: 5, number: true })` will return:
-```javascript
+```typescript
 {
   raw: [ 'exciting', 'cooperative', 'legal', 'lackadaisical', 'blood', 4099 ],
   dashed: 'exciting-cooperative-legal-lackadaisical-blood-4099',
@@ -97,8 +100,8 @@ The `options` argument object can have properties
 }
 ```
 
-`generate({ words: 2, number: false, startingLetter: 'e', alliterative: true })` will return:
-```javascript
+`generate({ words: 2, number: false, alliterative: true })` will return:
+```typescript
 {
   raw: [ 'elegant', 'experience' ],
   dashed: 'elegant-experience',
@@ -106,19 +109,16 @@ The `options` argument object can have properties
 }
 ```
 
-`generate({ words: 2, number: false, alliterative: 'c' })` will return:
-```javascript
-{
-  raw: [ 'crabby', 'cactus' ],
-  dashed: 'crabby-cactus',
-  spaced: 'crabby cactus'
-}
-```
-
 ## Tests
 To run tests locally:
 ```
-npm install
+bun install
 
-npm test
+bun test
 ```
+
+## Disclaimer
+
+The original author of this package has discontinued support.
+
+This fork is to keep the package alive and up to date and provide much needed updates.
