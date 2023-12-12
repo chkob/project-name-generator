@@ -122,8 +122,3 @@ npm install
 
 npm test
 ```
-
-The library has been tested with Node.js 12.18.4
-
-## Status
-![How up-to-date are dependencies?](https://david-dm.org/aceakash/project-name-generator.svg)
