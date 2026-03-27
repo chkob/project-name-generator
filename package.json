@@ -29,6 +29,7 @@
   "author": "Nikola Susa",
   "license": "ISC",
   "devDependencies": {
+    "@types/node": "^25.5.0",
     "bun-plugin-dts": "^0.2.1",
     "bun-types": "^1.0.17"
   },

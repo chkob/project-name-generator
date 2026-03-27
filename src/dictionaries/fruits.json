@@ -1,4 +1,4 @@
-module.exports = [
+[
     "acerola",
     "pomme",
     "apple",
@@ -68,5 +68,5 @@ module.exports = [
     "tamarind",
     "tangerine",
     "watermelon"
-];
+]
 

@@ -1,4 +1,4 @@
-module.exports = [
+[
   "amnat charoen",
   "ang thong",
   "bangkok",
@@ -77,4 +77,4 @@ module.exports = [
   "uttaradit",
   "yala",
   "yasothon"
-];
+]

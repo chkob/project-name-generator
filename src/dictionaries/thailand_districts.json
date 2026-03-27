@@ -1,4 +1,4 @@
-module.exports = [
+[
 "akat amnuai",
 "amphawa",
 "ao luek",
@@ -858,4 +858,4 @@ module.exports = [
 "yarang",
 "yaring",
 "yi-ngo"
-];
+]
