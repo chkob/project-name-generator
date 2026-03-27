@@ -1,8 +1,13 @@
 import {includes} from '../src/utils';
 import nouns from '../src/dictionaries/nouns.json';
 import adjectives from '../src/dictionaries/adjectives.json';
+import fruits from '../src/dictionaries/fruits.json';
+import breads from '../src/dictionaries/breads.json';
+import thailand_provinces from '../src/dictionaries/thailand_provinces.json';
+import thailand_districts from '../src/dictionaries/thailand_districts.json';
 import generate, {blocklistFilter} from '../src/generator';
 import {test, expect, describe, beforeEach} from "vitest";
+
 describe('generator', function () {
   test('has a generate function', function () {
     expect(typeof generate).toBe('function');
@@ -71,6 +76,16 @@ describe('generator', function () {
         expect(typeof srvName.raw[0]).toBe('string');
         expect(typeof srvName.raw[1]).toBe('string');
         expect(typeof srvName.raw[2]).toBe('number');
+        expect(srvName.raw[2].toString().length).toBe(4);
+      });
+
+      test('with {number: true, numDigit: "6"}, includes number', function () {
+        srvName = generate({number: true, numDigit: "6"});
+        expect(srvName.raw.length).toBe(3);
+        expect(typeof srvName.raw[0]).toBe('string');
+        expect(typeof srvName.raw[1]).toBe('string');
+        expect(typeof srvName.raw[2]).toBe('number');
+        expect(srvName.raw[2].toString().length).toBe(6);
       });
 
       test('with {words: n}, has n-1 adjectives and 1 noun', function () {
@@ -87,6 +102,49 @@ describe('generator', function () {
         expect(includes(adjectives, srvName.raw[2])).toBe(true);
         expect(includes(adjectives, srvName.raw[3])).toBe(true);
         expect(includes(nouns, srvName.raw[4])).toBe(true);
+      });
+
+      test('with {words: n}, has n-1 adjectives and 1 noun from set of fruits', function () {
+        srvName = generate({words: 3, vocab: "fruits"});
+        expect(srvName.raw.length).toBe(3);
+        expect(includes(adjectives, srvName.raw[0])).toBe(true);
+        expect(includes(adjectives, srvName.raw[1])).toBe(true);
+        expect(includes(fruits, srvName.raw[2])).toBe(true);
+      });
+
+      test('with {words: n}, has n-1 adjectives and 1 noun from set of breads', function () {
+        srvName = generate({words: 3, vocab: "breads"});
+        expect(srvName.raw.length).toBe(3);
+        expect(includes(adjectives, srvName.raw[0])).toBe(true);
+        expect(includes(adjectives, srvName.raw[1])).toBe(true);
+        expect(includes(breads, srvName.raw[2])).toBe(true);
+      });
+
+      test('with {words: n}, has n-1 adjectives and 1 noun from set of Thailand\'s provinces', function () {
+        srvName = generate({words: 3, geo: "default"});
+        expect(srvName.raw.length).toBe(3);
+        expect(includes(adjectives, srvName.raw[0])).toBe(true);
+        expect(includes(adjectives, srvName.raw[1])).toBe(true);
+        expect(includes(thailand_provinces, srvName.raw[2])).toBe(true);
+      });
+
+      test('with {words: n}, has n-1 adjectives and 1 noun from set of Thailand\'s provinces with a number', function () {
+        srvName = generate({words: 3, geo: "numbers"});
+        console.log(JSON.stringify(srvName));
+        expect(srvName.raw.length).toBe(4);
+        expect(includes(adjectives, srvName.raw[0])).toBe(true);
+        expect(includes(adjectives, srvName.raw[1])).toBe(true);
+        expect(includes(thailand_provinces, srvName.raw[2])).toBe(true);
+        expect(srvName.raw[3].toString().length).toBe(4);
+      });
+
+      test('with {words: n}, has n-1 adjectives and 1 noun from set of Thailand\'s districts', function () {
+        srvName = generate({words: 3, geo: "others"});
+        console.log(JSON.stringify(srvName));
+        expect(srvName.raw.length).toBe(3);
+        expect(includes(adjectives, srvName.raw[0])).toBe(true);
+        expect(includes(adjectives, srvName.raw[1])).toBe(true);
+        expect(includes(thailand_districts, srvName.raw[2])).toBe(true);
       });
 
       test('with {alliterative: true}, has 1 adjective and 1 noun beginning with same letter', function () {
