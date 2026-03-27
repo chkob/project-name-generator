@@ -63,6 +63,9 @@ Options:
   -h, --help              display help for command
 ```
 
+## Running without install to global,
+Once executing `npm install` then `npm run gen -- <options value>`, ex. `npm run gen -- --vocab "breads"`
+
 ## API
 The module returns a single function, `generate(options)`
 
