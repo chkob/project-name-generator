@@ -17,7 +17,10 @@ function generate(options) {
     vocab: 'default',
     startingLetter: null,
   };
+
+  // console.log(JSON.stringify(options));
   options = _.merge(defaults, options || {});
+  // console.log(JSON.stringify(options));
 
   var raw = getRawProjName(options);
 
@@ -32,6 +35,7 @@ function generate(options) {
 }
 
 function getRawProjName(options) {
+  // console.log(JSON.stringify(options));
   var raw = [];
   _.times(options.words - 1, function () {
     if (options.alliterative && raw.length)
@@ -47,9 +51,14 @@ function getRawProjName(options) {
   var vocab = getVocab(options);
 
   if (options.alliterative)
+  {
+    console.log('alliterative!');
     raw.push(_.sample(getAlliterativeMatches(vocab, raw[0].substring(0, 1))).replace(/\s/g, "-"));
+  }
   else
+  {
     raw.push(_.sample(vocab).toLowerCase().replace(/\s/g, "-"));
+  }
 
   if (options.number || options.geo === 'numbers') {
     // `true` check for backwards-compat support of boolean value, generates 4 digits (1-9999)
@@ -68,6 +77,7 @@ function getAlliterativeMatches(arr, letter) {
 function getVocab(options) {
 
   if(options.geo === undefined) {
+    // console.log(JSON.stringify(options));
     switch(options.vocab)
     {
       case "fruits": return fruits;
