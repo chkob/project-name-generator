@@ -4,8 +4,8 @@
   "description": "Generate a random, ~ unique, heroku/gcp-like name for your project, server etc. e.g. \"fragile-sack\"",
   "main": "dist/generator.js",
   "scripts": {
-    "test": "bun test",
-    "build": "bun run build.js"
+    "test": "vitest run",
+    "build": "tsup src/generator.ts src/cli.ts --format cjs,esm --dts --clean"
   },
   "repository": {
     "type": "git",
@@ -29,9 +29,11 @@
   "author": "Nikola Susa",
   "license": "ISC",
   "devDependencies": {
-    "@types/node": "^25.5.0",
-    "bun-plugin-dts": "^0.2.1",
-    "bun-types": "^1.0.17"
+    "@types/node": "^22.0.0",
+    "tsup": "^8.0.0",
+    "vitest": "^3.0.0",
+    "tsx": "^4.0.0",
+    "typescript": "^5.0.0"
   },
   "bin": {
     "server-name-gen": "dist/cli.js"

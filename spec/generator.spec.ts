@@ -2,10 +2,10 @@ import {includes} from '../src/utils';
 import nouns from '../src/dictionaries/nouns.json';
 import adjectives from '../src/dictionaries/adjectives.json';
 import generate, {blocklistFilter} from '../src/generator';
-import {test, expect, describe, beforeEach} from "bun:test";
+import {test, expect, describe, beforeEach} from "vitest";
 describe('generator', function () {
   test('has a generate function', function () {
-    expect(generate).toBeFunction();
+    expect(typeof generate).toBe('function');
   });
 
   describe('generate', function () {
