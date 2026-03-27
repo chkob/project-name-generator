@@ -20,6 +20,8 @@ describe('generator', function () {
           expect(srvName.dashed).not.toBeUndefined();
           expect(srvName.spaced).not.toBeUndefined();
           expect(srvName.raw).not.toBeUndefined();
+          expect(srvName.dot).not.toBeUndefined();
+          expect(srvName.under_scored).not.toBeUndefined();
       });
 
       test('has a property raw which is an array of two strings', function () {
@@ -42,6 +44,14 @@ describe('generator', function () {
 
       test("has a property spaced, which is a string of raw's items joined with a space", function () {
           expect(srvName.spaced).toBe(srvName.raw.join(' '));
+      });
+
+      test("has a property dot, which is a string of raw's items joined with a dot", function () {
+          expect(srvName.dot).toBe(srvName.raw.join('.'));
+      });
+
+      test("has a property under scored, which is a string of raw's items joined with an underscored", function () {
+          expect(srvName.under_scored).toBe(srvName.raw.join('_'));
       });
     });
 
