@@ -51,6 +51,7 @@ args.forEach((arg:string, index:number) => {
 if (args.includes('-h') || args.includes('--help')) {
     help();
 } else  {
+    // console.log(JSON.stringify(options));
     const srvName = generate(options);
     if (args.includes('-f') || args.includes('--format')) {
         const flagIndex = args.indexOf('-f') !== -1 ? args.indexOf('-f') : args.indexOf('--format');

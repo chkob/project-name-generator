@@ -53,6 +53,7 @@ function generate(options?: Partial<Options>) :Result {
     numDigit: '4'
   };
   const opt = merge(defaults, options || {});
+  // console.log(JSON.stringify(opt));
   const raw = getRawProjName(opt);
 
   return {
