@@ -5,7 +5,9 @@
   "main": "dist/generator.js",
   "scripts": {
     "test": "vitest run",
-    "build": "tsup src/generator.ts src/cli.ts --format cjs,esm --dts --clean"
+    "build": "tsup src/generator.ts src/cli.ts --format cjs,esm --dts --clean",
+    "start": "tsx src/cli.ts",
+    "gen": "node dist/cli.js"
   },
   "repository": {
     "type": "git",
